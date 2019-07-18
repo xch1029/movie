@@ -37,7 +37,7 @@ class MovieItem extends StatelessWidget {
                 desc('豆瓣评分：', data['rating']['average'].toString()),
                 desc('主演：',
                     data['directors'].map((item) => item['name']).join(', ')),
-                desc('时长：', data['durations'][0]),
+                desc('时长：', data['durations'].isEmpty ? '' : data['durations'][0]),
                 desc('类型：', data['genres'].join(', ')),
               ],
             )

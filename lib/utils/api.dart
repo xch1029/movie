@@ -1,8 +1,11 @@
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
-getMovieList() async {
-  const url = 'https://api.douban.com/v2/movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&city=%E5%8D%97%E4%BA%AC&start=0&count=10';
+const apikey = '0b2bdeda43b5688921839c8ecb20399b';
+// 正在上映或者历史top
+getMovieList([bool history = false]) async {
+  var url =
+      'https://api.douban.com/v2/movie/${history ? 'top250' : 'in_theaters'}?apikey=$apikey&city=%E5%8D%97%E4%BA%AC&start=0&count=20';
   var res = await http.get(url);
   if (res.statusCode == 200) {
     var jsonRes = convert.jsonDecode(res.body);
@@ -13,7 +16,7 @@ getMovieList() async {
 }
 
 getMovieDetail(id) async {
-  var url = 'https://api.douban.com/v2/movie/subject/$id?apikey=0b2bdeda43b5688921839c8ecb20399b';
+  var url = 'https://api.douban.com/v2/movie/subject/$id?apikey=$apikey';
   var res = await http.get(url);
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body);
