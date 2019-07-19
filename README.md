@@ -2,6 +2,9 @@
 
 A new Flutter project.
 
+## App截图
+![](http://qiniu.tbmao.com/flutterfluttermovie.jpg)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
