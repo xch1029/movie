@@ -23,7 +23,7 @@ class Photos extends StatelessWidget {
                 padding: EdgeInsets.all(5),
                 child: Image.network(
                   photos[index]['thumb'],
-                  width: 200,
+                  width: 180,
                   height: 100,
                   fit: BoxFit.cover,
                 ),

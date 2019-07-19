@@ -26,7 +26,11 @@ class MovieDetailTop extends StatelessWidget {
                 right: 0,
                 top: 0,
                 bottom: 0,
-                child: Icon(Icons.play_circle_outline, color: Colors.white, size: 40,),
+                child: Icon(
+                  Icons.play_circle_outline,
+                  color: Colors.white,
+                  size: 40,
+                ),
               )
             ]),
           ),
@@ -46,9 +50,9 @@ class MovieDetailTop extends StatelessWidget {
                   style: DefaultTextStyle.of(context).style,
                   children: [
                     TextSpan(
-                        text: data['wish_count'].toString(),
-                        style: TextStyle(color: Colors.yellow)),
-                    TextSpan(text: '想看')
+                      text: data['wish_count'].toString(),
+                    ),
+                    TextSpan(text: '人想看')
                   ],
                 ),
               )

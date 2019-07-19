@@ -43,7 +43,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   children: <Widget>[
                     MovieDetailTop(data: _data),
                     Rate(count: _data['ratings_count'], rating: _data['rating']),
-                    Text(_data['summary']),
+                    Container(padding: EdgeInsets.all(10),child: Text(_data['summary'])),
                     Actors(directors: _data['directors'], casts: _data['casts']),
                     Photos(photos: _data['photos'],),
                     Comments(comments: _data['popular_comments']),

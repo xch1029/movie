@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie/utils/api.dart' as api;
 import 'package:movie/widgets/movieItem.dart';
-import 'dart:math';
 
 class Hot extends StatefulWidget {
   final bool history;

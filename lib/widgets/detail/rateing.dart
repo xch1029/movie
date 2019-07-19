@@ -13,47 +13,55 @@ class Rate extends StatelessWidget {
       return List.generate(5, (int index) {
         return {
           'title': '${5 - index}星',
-          'value': rating['details']['${5 - index}'] / (totalRate == 0 ? 1 :totalRate),
+          'value': rating['details']['${5 - index}'] /
+              (totalRate == 0 ? 1 : totalRate),
         };
       });
     }
 
-    return Flex(
-      direction: Axis.horizontal,
-      children: <Widget>[
-        Expanded(
-          flex: 3,
-          child: Column(
-            children: calcRateList()
-                .map((item) => Flex(
-                      direction: Axis.horizontal,
-                      children: <Widget>[
-                        Text(item['title']),
-                        Expanded(
-                          flex: 2,
-                          child: LinearProgressIndicator(
-                            value: item['value'],
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Flex(
+        direction: Axis.horizontal,
+        children: <Widget>[
+          Expanded(
+            flex: 3,
+            child: Column(
+              children: calcRateList()
+                  .map((item) => Flex(
+                        direction: Axis.horizontal,
+                        children: <Widget>[
+                          Text(item['title']),
+                          SizedBox(width: 5),
+                          Expanded(
+                            flex: 2,
+                            child: LinearProgressIndicator(
+                              value: item['value'],
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 60,
-                          child: Text((100 * item['value']).toStringAsFixed(2)+ '%'),
-                        ),
-                      ],
-                    ))
-                .toList(),
+                          SizedBox(width: 5),
+                          SizedBox(
+                            width: 60,
+                            child: Text(
+                              (100 * item['value']).toStringAsFixed(2) + '%',
+                            ),
+                          ),
+                        ],
+                      ))
+                  .toList(),
+            ),
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Column(
-            children: <Widget>[
-              Text(rating['average'].toString()),
-              Text(count.toString()),
-            ],
+          Expanded(
+            flex: 1,
+            child: Column(
+              children: <Widget>[
+                CircleAvatar(child: Text(rating['average'].toString()),),
+                Text(count.toString()+'人'),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
