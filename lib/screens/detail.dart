@@ -33,7 +33,7 @@ class _MovieDetailState extends State<MovieDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _data.isEmpty
-          ? null
+          ? Center(child: CircularProgressIndicator(),)
           : SafeArea(
               child: Container(
                 height: MediaQuery.of(context).size.height,
