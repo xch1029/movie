@@ -3,13 +3,12 @@ import 'package:http/http.dart' as http;
 
 const apikey = '0b2bdeda43b5688921839c8ecb20399b';
 // 正在上映或者历史top
-getMovieList([bool history = false]) async {
+getMovieList({history=false,start=0,count=10}) async {
   var url =
-      'https://api.douban.com/v2/movie/${history ? 'top250' : 'in_theaters'}?apikey=$apikey&city=%E5%8D%97%E4%BA%AC&start=0&count=20';
+      'https://api.douban.com/v2/movie/${history ? 'top250' : 'in_theaters'}?apikey=$apikey&city=%E5%8D%97%E4%BA%AC&start=$start&count=$count';
   var res = await http.get(url);
   if (res.statusCode == 200) {
-    var jsonRes = convert.jsonDecode(res.body);
-    return jsonRes['subjects'];
+    return convert.jsonDecode(res.body);
   } else {
     print("Request failed with status: ${res.statusCode}.");
   }
