@@ -60,14 +60,16 @@ class _HotState extends State<Hot> with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return RefreshIndicator(
-      onRefresh: _onRefresh,
-      child: ListView.builder(
-        controller: _scrollController,
-        itemCount: this._movieList.length,
-        itemBuilder: (BuildContext context, int index) =>
-            MovieItem(data: this._movieList[index]),
-      ),
-    );
+    return this._movieList.isEmpty
+        ? Center(child: CircularProgressIndicator())
+        : RefreshIndicator(
+            onRefresh: _onRefresh,
+            child: ListView.builder(
+              controller: _scrollController,
+              itemCount: this._movieList.length,
+              itemBuilder: (BuildContext context, int index) =>
+                  MovieItem(data: this._movieList[index]),
+            ),
+          );
   }
 }
