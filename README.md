@@ -257,3 +257,6 @@ class _MovieDetailState extends State<MovieDetail> {
 [源码仓库](https://github.com/xch1029/movie)
 [博客地址](http://jser.tech/2019/07/19/flutter-movie)
 [掘金地址](https://juejin.im/post/5d31ea42f265da1bbe5e3ea7)
+
+### 访问统计
+<img align="left" src = "https://profile-counter.glitch.me/xch1029_movie/count.svg" alt ="Loading">
